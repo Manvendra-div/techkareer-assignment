@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import NavBar from "./NavBar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,7 +17,23 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <NavBar />
+        <div className="flex justify-center items-center border-b-[1px] border-gray-300">
+          <div className="flex items-center space-x-3 w-full md:w-[80%] 2xl:w-[1200px]">
+            <button className="p-5 focus:text-[#DC4A2D] border-b-[1px] border-transparent focus:border-[#DC4A2D] transition duration-200">
+              Job preview
+            </button>
+            <button className="p-5 focus:text-[#DC4A2D] border-b-[1px] border-transparent focus:border-[#DC4A2D] transition duration-200">
+              Applicants
+            </button>
+            <button className="p-5 focus:text-[#DC4A2D] border-b-[1px] border-transparent focus:border-[#DC4A2D] transition duration-200">
+              Messages
+            </button>
+          </div>
+        </div>
+        {children}
+      </body>
     </html>
   );
 }
